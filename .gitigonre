@@ -1,0 +1,5 @@
+data.bak
+deprecated
+*/__pycache__
+*.ipynb_checkpoints
+test
