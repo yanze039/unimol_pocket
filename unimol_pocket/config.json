@@ -1,0 +1,34 @@
+{
+    "temp": 300,
+    "em": {
+        "maxcyc": 5000,
+        "resstraint_wt": 5.0
+    },
+    "heat": {
+        "nsteps": 50000,
+        "resstraint_wt": 5.0,
+        "ofreq": 5000
+    },
+    "pressurize_res": {
+        "nsteps": 100000,
+        "resstraint_wt": 5.0,
+        "ofreq": 10000
+    },
+    "pressurize": {
+        "nsteps": 400000,
+        "ofreq": 40000
+    },
+    "production": {
+        "nsteps": 10000000,
+        "numexchg": 5000,
+        "ntwe": 0,
+        "ntwx": 5000,
+        "ntwr": 50000,
+        "ntpr": 5000
+    },
+    "env":[
+        "source /etc/profile",
+        "module load cuda/11.2",
+        "source $HOME/env/amber22.env"
+    ]
+}
