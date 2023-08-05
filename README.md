@@ -21,6 +21,19 @@ find_pocket(pdb_dir, # the protein dir containing raw PDB
 ```
 
 ```python
+## To generate binding pose with UniMol
+from unimol_pocket.main import binding_pose
+
+binding_pose(
+        data_path_meta, # data path of binding pose prediction input files
+        weight_path, # dir of the pretrained model
+        smiles_list=['CC1=C2C(OC(CC)(C)CC2)=C(C)C(C)=C1O'], # drugs of interest, VE as an example
+        pocket_path=Path("pocket") # output dir of `find_pocket`
+        )
+# A output folder containing ligand sdf will be generated.
+```
+
+```python
 ## To get the affinity scores from UniMol predictions
 from unimol_pocket.main import pocket_ranking
 
