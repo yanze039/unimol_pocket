@@ -6,7 +6,9 @@ import tqdm
 from unimol_pocket.logger import getLogger
 from unimol_pocket.op import grab_first_chain, PocketPreperation
 from unimol_pocket.workflow import pocket_scoring
-
+from unimol_pocket.copy_pdb import collect_pdb
+from unimol_pocket.get_residue_id import get_pocket_json
+from unimol_pocket.ve_binding_pose_pred import generate_binding_pose
 
 logger = getLogger()
 
@@ -38,6 +40,17 @@ def find_pocket(pdb_dir, outdir=Path("pocket")):
     logger.info("Detecting pockets by Fpocket...")
     for pdb in outdir.glob(f"*.{tag}.pdb"):
         PocketPreperation(pdb)
+
+
+def binding_pose(
+        data_path_meta, 
+        weight_path, 
+        smiles_list=['CC1=C2C(OC(CC)(C)CC2)=C(C)C(C)=C1O'],
+        pocket_path=Path("pocket")
+        ):
+    collect_pdb(pocket_path, data_path_meta)
+    get_pocket_json(pocket_path, data_path_meta)
+    generate_binding_pose(smiles_list, data_path_meta, weight_path)
 
 
 def pocket_ranking(
