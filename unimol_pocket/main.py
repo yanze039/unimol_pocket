@@ -43,8 +43,8 @@ def find_pocket(pdb_dir, outdir=Path("pocket")):
 def pocket_ranking(
         ligand_sdf_dir,
         output_dir,
-        protein_dir,
-        ligand_name="mol"):
+        protein_dir
+        ):
     
     if not isinstance(ligand_sdf_dir, Path):
         ligand_sdf_dir = Path(ligand_sdf_dir)

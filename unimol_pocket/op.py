@@ -5,8 +5,8 @@ import MDAnalysis as mda
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from logger import getLogger
-from utils import run_command, set_directory
+from unimol_pocket.logger import getLogger
+from unimol_pocket.utils import run_command, set_directory
 
 
 logger = getLogger()
